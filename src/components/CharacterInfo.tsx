@@ -17,14 +17,13 @@ const useStyles = createStyles(() => ({
     },
 }));
 
-
 export function CharacterInfo({ name, status, gender, species, type, location }: CharacterInfoProps) {
     const { classes, cx } = useStyles();
     return (
 
         <Group>
             <Flex mx="auto" direction="column">
-                <Text size={25} my={5} fw="bold">
+                <Text align='center' size={25} mb={10} fw="bold">
                     {name}
                 </Text>
                 <Text >Status: {status}</Text>
@@ -32,7 +31,7 @@ export function CharacterInfo({ name, status, gender, species, type, location }:
                 <Text>Specie: {species}</Text>
                 <Text py={10}>Typ: {type || 'unknown'}</Text>
                 <Link className={classes.linkUnder} href={`/locations/${location}`}>
-                    <Text color='cyan'>Location: {location} </Text>
+                    <Text fw="bold" color='cyan'>Location: {location} </Text>
                 </Link>
             </Flex>
         </Group >

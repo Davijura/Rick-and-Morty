@@ -23,13 +23,27 @@ const useStyles = createStyles((theme) => ({
       width: '60%',
     },
     '@media (max-width: 1200px)': {
-      width: '80%',
+      width: '95%',
     },
   },
   hoverEffect: {
     transition: 'box-shadow 0.3s',
     '&:hover': {
       boxShadow: theme.shadows.sm,
+    },
+  },
+  cardMobile: {
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
+  },
+  textMobile: {
+    display: 'none',
+    '@media (max-width: 768px)': {
+      display: 'block',
+    },
+    '@media (max-width: 1200px)': {
+      width: '94%',
     },
   },
 }));
@@ -45,15 +59,20 @@ export function CharacterEpisodesList({ episodes }: CharacterEpisodesProps) {
           <Text mb={10} size={20} fw="bold" align='center' color='cyan'>Episodes</Text>
         </Group>
 
-        <ScrollArea type="auto" style={{ maxHeight: 240, overflowY: 'auto', width: '100%' }}>
+        <ScrollArea scrollbarSize={14} type="auto" h={350}>
           {episodes.map((episode, index) => (
             <Link className={classes.linkUnder} key={index} href={`/episodes/${episode.name}`}>
 
-              <Card className={cx(classes.responsive, classes.hoverEffect)} mx="auto" my={5} padding="sm" radius="md" withBorder>
+              <Card className={cx(classes.responsive, classes.hoverEffect, classes.cardMobile)} mx="auto" mb={5} padding="sm" radius="md" withBorder>
                 <Flex justify="space-between">
                   <Text fw="bold">{episode.name}</Text>
                   <Text fw="bold">{episode.episode}</Text>
                 </Flex>
+              </Card>
+
+              <Card radius="md" my={10} withBorder className={classes.textMobile}>
+                <Text fw="bold">{episode.name}</Text>
+                <Text fw="bold">{episode.episode}</Text>
               </Card>
 
             </Link>

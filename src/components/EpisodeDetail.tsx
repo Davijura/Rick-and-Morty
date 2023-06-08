@@ -1,5 +1,5 @@
 import React from 'react';
-import { Group, Card, Text, Loader } from '@mantine/core';
+import { Group, Card, Text, Loader, Flex } from '@mantine/core';
 import { useEpisodeData } from '../hooks/useEpisodeData';
 import CharacterGrid from './CharacterGrid';
 
@@ -15,7 +15,7 @@ export default function EpisodeDetail({ name }: EpisodeDetailProps) {
   }
 
   return (
-    <Group>
+    <Flex mx="auto" direction="column">
       <Group position="center" mx="auto">
         <Card shadow="sm" padding="lg" radius="md" withBorder w={350}>
           <Text fw="bold" size={20} align="center">
@@ -27,6 +27,6 @@ export default function EpisodeDetail({ name }: EpisodeDetailProps) {
       </Group>
 
       <CharacterGrid characters={characters} />
-    </Group>
+    </Flex>
   );
 }

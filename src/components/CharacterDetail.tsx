@@ -18,7 +18,7 @@ export default function CharacterDetail({ name }: CharacterDetailProps) {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Check initial window size
+    handleResize()
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -32,7 +32,7 @@ export default function CharacterDetail({ name }: CharacterDetailProps) {
 
   return (
     <Card mx="auto" w={isMobile ? '100%' : 1000} >
-      <Flex mb={25} gap={35} justify="center" mx="auto" direction="row">
+      <Flex mb={isMobile ? 25 : 40} gap={isMobile ? 15 : 35} justify="center" mx="auto" direction={isMobile ? "column" : "row"}>
         <Group position="center">
           <CharacterImage src={characterData.image} alt="Postava" />
         </Group>
@@ -45,7 +45,6 @@ export default function CharacterDetail({ name }: CharacterDetailProps) {
           type={characterData.type}
           location={characterData.location.name}
           episode={characterData.episode}
-
         />
       </Flex>
 
