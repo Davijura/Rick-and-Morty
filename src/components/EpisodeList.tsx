@@ -1,6 +1,7 @@
-import { Card, Text, Group, createStyles, Flex } from "@mantine/core";
+import { Card, Text, Group, createStyles, Flex, Col, MediaQuery } from "@mantine/core";
 import { Episode } from '@/hooks/useEpisodes';
 import Link from "next/link";
+import { useMediaQuery } from "@mantine/hooks";
 
 type EpisodeListProps = {
   episodes: Episode[];
@@ -43,6 +44,7 @@ const useStyles = createStyles((theme) => ({
 
 const EpisodeList = ({ episodes }: EpisodeListProps) => {
   const { classes, cx } = useStyles();
+  const isMobile = useMediaQuery('(max-width: 600px)');
 
   return (
     <Group position="center" mb={35}>
@@ -61,7 +63,7 @@ const EpisodeList = ({ episodes }: EpisodeListProps) => {
               <Group w="full" position="center" className={classes.contentCenter}>
                 <Text>{episode.episode}</Text>
                 <Text>{episode.name}</Text>
-                <Text>{episode.air_date}</Text>
+                {!isMobile && <Text>{episode.air_date}</Text>}
               </Group>
             </Card>
           </Link>
