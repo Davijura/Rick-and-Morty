@@ -32,8 +32,8 @@ export default function LocationDetail({ name }: LocationDetailProps) {
   }
 
   return (
-    <div>
-      <Group>
+    
+      <Flex direction="column" mx="auto">
         <Group position="center" mx="auto">
           <Card shadow="sm" padding="lg" radius="md" withBorder w={350}>
             <Text fw="bold" size={20} align="center">{locationData.name}</Text>
@@ -45,7 +45,7 @@ export default function LocationDetail({ name }: LocationDetailProps) {
         <Group position="center" mx="auto" mt={20} mb={30}>
           <LocationGrid characters={characters} />
         </Group>
-      </Group>
-    </div>
+      </Flex>
+    
   );
 }

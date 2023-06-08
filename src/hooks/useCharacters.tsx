@@ -24,7 +24,7 @@ const useCharacters = ({ page = 1, searchTerm = '' }: UseCharactersProps) => {
     const fetchCharacters = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get('https://rickandmortyapi.com/api/character', {
+        const response = await axios.get('https://rickandmortyapi.com/api/character/', {
           params: {
             page,
             name: searchTerm,
