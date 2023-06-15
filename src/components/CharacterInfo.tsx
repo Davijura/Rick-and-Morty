@@ -15,15 +15,21 @@ const useStyles = createStyles(() => ({
     linkUnder: {
         textDecoration: 'none',
     },
+    title: {
+        textAlign: 'left',
+        [`@media (max-width: 768px)`]: {
+            textAlign: 'center',
+        },
+    },
 }));
 
 export function CharacterInfo({ name, status, gender, species, type, location }: CharacterInfoProps) {
     const { classes, cx } = useStyles();
-    return (
 
+    return (
         <Group>
             <Flex mx="auto" direction="column">
-                <Text align='center' size={25} mb={10} fw="bold">
+                <Text size={25} mb={10} fw="bold" className={classes.title}>
                     {name}
                 </Text>
                 <Text >Status: {status}</Text>
@@ -34,7 +40,6 @@ export function CharacterInfo({ name, status, gender, species, type, location }:
                     <Text fw="bold" color='cyan'>Location: {location} </Text>
                 </Link>
             </Flex>
-        </Group >
-
-    );
+        </Group>
+    )
 }

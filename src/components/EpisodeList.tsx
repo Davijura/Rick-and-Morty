@@ -1,4 +1,4 @@
-import { Card, Text, Group, createStyles, Flex, Col, MediaQuery } from "@mantine/core";
+import { Card, Text, Group, createStyles, Flex } from "@mantine/core";
 import { Episode } from '@/hooks/useEpisodes';
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
